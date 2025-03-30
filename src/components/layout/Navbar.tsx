@@ -15,7 +15,52 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+
+// Navigation items array defined outside of the component
+const navigationItems = [
+  { path: '/', label: 'Home', icon: Home },
+  { path: '/history', label: 'History', icon: Clock },
+  { path: '/profile', label: 'Settings', icon: Settings },
+];
+
+// Mobile navigation component defined outside the main component
+const MobileNavigation = ({ signOut, location }) => (
+  <Sheet>
+    <SheetTrigger asChild>
+      <Button variant="ghost" size="icon" className="md:hidden">
+        <Menu className="h-5 w-5" />
+        <span className="sr-only">Toggle menu</span>
+      </Button>
+    </SheetTrigger>
+    <SheetContent side="left" className="py-4">
+      <div className="flex flex-col space-y-3 px-4">
+        {navigationItems.map((item) => (
+          <Button
+            key={item.path}
+            variant={location.pathname === item.path ? 'default' : 'ghost'}
+            size="sm"
+            className="justify-start"
+            asChild
+          >
+            <Link to={item.path} className="flex items-center gap-2">
+              <item.icon className="h-4 w-4" />
+              <span>{item.label}</span>
+            </Link>
+          </Button>
+        ))}
+        <Button
+          variant="destructive"
+          size="sm"
+          className="justify-start mt-4"
+          onClick={signOut}
+        >
+          <LogOut className="h-4 w-4 mr-2" />
+          <span>Sign out</span>
+        </Button>
+      </div>
+    </SheetContent>
+  </Sheet>
+);
 
 const Navbar = () => {
   const { user, signOut } = useAuth();
@@ -23,50 +68,6 @@ const Navbar = () => {
   const isMobile = useIsMobile();
 
   if (!user) return null;
-
-  const navigationItems = [
-    { path: '/', label: 'Home', icon: Home },
-    { path: '/history', label: 'History', icon: Clock },
-    { path: '/profile', label: 'Settings', icon: Settings },
-  ];
-
-  const MobileNavigation = () => (
-    <Drawer>
-      <DrawerTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <Menu className="h-5 w-5" />
-          <span className="sr-only">Toggle menu</span>
-        </Button>
-      </DrawerTrigger>
-      <DrawerContent className="py-4">
-        <div className="flex flex-col space-y-3 px-4">
-          {navigationItems.map((item) => (
-            <Button
-              key={item.path}
-              variant={location.pathname === item.path ? 'default' : 'ghost'}
-              size="sm"
-              className="justify-start"
-              asChild
-            >
-              <Link to={item.path} className="flex items-center gap-2">
-                <item.icon className="h-4 w-4" />
-                <span>{item.label}</span>
-              </Link>
-            </Button>
-          ))}
-          <Button
-            variant="destructive"
-            size="sm"
-            className="justify-start mt-4"
-            onClick={signOut}
-          >
-            <LogOut className="h-4 w-4 mr-2" />
-            <span>Sign out</span>
-          </Button>
-        </div>
-      </DrawerContent>
-    </Drawer>
-  );
 
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -79,7 +80,7 @@ const Navbar = () => {
 
         {isMobile ? (
           <div className="flex items-center gap-3">
-            <MobileNavigation />
+            <MobileNavigation signOut={signOut} location={location} />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-8 w-8 rounded-full" size="icon">
