@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,33 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                // Trash 2 Tech custom colors
+                t2t: {
+                    'green-100': '#E6F4EA',
+                    'green-200': '#C2E5CE',
+                    'green-300': '#94D4AC',
+                    'green-400': '#5ABF89',
+                    'green-500': '#34A853', // Primary green
+                    'green-600': '#2D8745',
+                    'green-700': '#266738',
+                    'blue-100': '#E8F0FE',
+                    'blue-200': '#C6D9F8',
+                    'blue-300': '#89B4F7',
+                    'blue-400': '#4285F4', // Primary blue
+                    'blue-500': '#3A76D8',
+                    'blue-600': '#3367D6',
+                    'brown-100': '#F5EFE6',
+                    'brown-200': '#E6D9C5',
+                    'brown-300': '#D2B48C',
+                    'brown-400': '#B3916A',
+                    'brown-500': '#8D6E63', // Primary brown
+                    'orange-100': '#FFF3E0',
+                    'orange-200': '#FFE0B2',
+                    'orange-300': '#FFCC80',
+                    'orange-400': '#FFA726',
+                    'orange-500': '#FF9800', // Primary orange
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
