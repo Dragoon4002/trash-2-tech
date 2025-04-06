@@ -26,9 +26,9 @@ const ActionOption: React.FC<ActionOptionProps> = ({
       >
         <Icon className="h-8 w-8 text-white" />
       </div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground text-center mb-4">{description}</p>
-      <Button variant="outline" className="mt-auto">
+      <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+      <p className="text-muted-foreground text-center mb-4">{description}</p>
+      <Button variant="outline" className="mt-auto text-xl">
         Select
       </Button>
     </Card>

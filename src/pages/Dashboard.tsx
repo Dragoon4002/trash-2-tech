@@ -1,4 +1,4 @@
-
+"use client"
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -45,8 +45,8 @@ const Dashboard = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">What Do You Want to Dispose?</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-5xl font-bold mb-2">What Do You Want to Dispose?</h1>
+          <p className="text-muted-foreground text-xl">
             Upload an image or describe your item to get waste management recommendations
           </p>
         </div>
@@ -83,7 +83,7 @@ const Dashboard = () => {
             onClick={handleAnalyze}
             disabled={isAnalyzing || (!uploadedImage && !textDescription.trim())}
             size="lg"
-            className="px-8"
+            className="px-8 text-xl"
           >
             {isAnalyzing ? (
               <>

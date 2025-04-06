@@ -23,8 +23,8 @@
     --muted: 142 25% 92%;
     --muted-foreground: 142 10% 40%;
 
-    --accent: 25 95% 53%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 100 50% 80%;
+    --accent-foreground: 100 40% 40%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -92,6 +92,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-size: large;
   }
 }
 

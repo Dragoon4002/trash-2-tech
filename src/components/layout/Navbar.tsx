@@ -6,6 +6,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Home, Clock, Settings, LogOut, Menu } from 'lucide-react';
+import logoImage from "/T2Tlarge.png"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,23 +29,23 @@ const MobileNavigation = ({ signOut, location }) => (
   <Sheet>
     <SheetTrigger asChild>
       <Button variant="ghost" size="icon" className="md:hidden">
-        <Menu className="h-5 w-5" />
+        <Menu className="h-6 w-6" />
         <span className="sr-only">Toggle menu</span>
       </Button>
     </SheetTrigger>
     <SheetContent side="left" className="py-4">
-      <div className="flex flex-col space-y-3 px-4">
+      <div className="flex flex-col space-y-5 px-4">
         {navigationItems.map((item) => (
           <Button
             key={item.path}
             variant={location.pathname === item.path ? 'default' : 'ghost'}
-            size="sm"
+            size="lg"
             className="justify-start"
             asChild
           >
             <Link to={item.path} className="flex items-center gap-2">
-              <item.icon className="h-4 w-4" />
-              <span>{item.label}</span>
+              <item.icon className="h-5 w-5" />
+              <span className='text-xl'>{item.label}</span>
             </Link>
           </Button>
         ))}
@@ -54,8 +55,8 @@ const MobileNavigation = ({ signOut, location }) => (
           className="justify-start mt-4"
           onClick={signOut}
         >
-          <LogOut className="h-4 w-4 mr-2" />
-          <span>Sign out</span>
+          <LogOut className="h-5 w-5 mr-2" />
+          <span className='text-xl'>Sign out</span>
         </Button>
       </div>
     </SheetContent>
@@ -71,10 +72,10 @@ const Navbar = () => {
 
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-primary">Trash 2 Tech</span>
+          <img src={logoImage} alt="Trash 2 Tech Logo" className="mx-auto w-[150px]" />
           </Link>
         </div>
 
@@ -93,8 +94,8 @@ const Navbar = () => {
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel>
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{user.name}</p>
-                    <p className="text-xs leading-none text-muted-foreground">
+                    <p className="text-lg font-medium leading-none">{user.name}</p>
+                    <p className="text-sm leading-none text-muted-foreground">
                       {user.email}
                     </p>
                   </div>
@@ -102,7 +103,7 @@ const Navbar = () => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
                   <Link to="/profile" className="flex items-center gap-2 cursor-pointer">
-                    <Settings className="h-4 w-4" />
+                    <Settings className="h-5 w-5" />
                     <span>Settings</span>
                   </Link>
                 </DropdownMenuItem>
@@ -111,7 +112,7 @@ const Navbar = () => {
                   onClick={signOut}
                   className="flex items-center gap-2 cursor-pointer text-destructive focus:text-destructive"
                 >
-                  <LogOut className="h-4 w-4" />
+                  <LogOut className="h-5 w-5" />
                   <span>Sign out</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -124,12 +125,12 @@ const Navbar = () => {
                 <Button
                   key={item.path}
                   variant={location.pathname === item.path ? 'default' : 'ghost'}
-                  size="sm"
+                  size="lg"
                   asChild
                 >
                   <Link to={item.path} className="flex items-center gap-1">
-                    <item.icon className="h-4 w-4" />
-                    <span>{item.label}</span>
+                    <item.icon className="h-6 w-6" />
+                    <span className='text-xl'>{item.label}</span>
                   </Link>
                 </Button>
               ))}
@@ -157,7 +158,7 @@ const Navbar = () => {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
                     <Link to="/profile" className="flex items-center gap-2 cursor-pointer">
-                      <Settings className="h-4 w-4" />
+                      <Settings className="h-5 w-5" />
                       <span>Settings</span>
                     </Link>
                   </DropdownMenuItem>
@@ -166,7 +167,7 @@ const Navbar = () => {
                     onClick={signOut}
                     className="flex items-center gap-2 cursor-pointer text-destructive focus:text-destructive"
                   >
-                    <LogOut className="h-4 w-4" />
+                    <LogOut className="h-5 w-5" />
                     <span>Sign out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>

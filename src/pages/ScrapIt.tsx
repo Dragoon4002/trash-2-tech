@@ -79,10 +79,10 @@ const ScrapIt = () => {
       <div className="max-w-4xl mx-auto">
         <Button 
           variant="ghost" 
-          className="mb-6" 
+          className="mb-6 text-xl" 
           onClick={() => navigate(-1)}
         >
-          <ChevronLeft className="mr-2 h-4 w-4" />
+          <ChevronLeft className="mr-2 h-5 w-5" />
           Back to Identification
         </Button>
         

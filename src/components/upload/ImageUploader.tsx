@@ -90,19 +90,19 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelected }) => {
           <>
             <div className="flex flex-col items-center justify-center text-center p-6">
               <ImageIcon className="h-12 w-12 text-muted-foreground mb-4" />
-              <h3 className="text-lg font-semibold mb-2">
+              <h3 className="text-xl font-semibold mb-2">
                 Drag & drop an image or click to browse
               </h3>
-              <p className="text-sm text-muted-foreground mb-4">
+              <p className="text-lg text-muted-foreground mb-4">
                 Supported formats: JPG, PNG, GIF
               </p>
               <Button
                 type="button"
                 variant="secondary"
                 onClick={handleButtonClick}
-                className="flex items-center gap-2"
+                className="flex items-center text-t2t-green-700 text-xl gap-2"
               >
-                <Upload className="h-4 w-4" />
+                <Upload className="h-5 w-5" />
                 Upload Image
               </Button>
             </div>
